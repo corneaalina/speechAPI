@@ -10,9 +10,11 @@ weight: 1
 is_admin: false
 permissions:
   - 'access comments'
+  - 'access conference call'
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'conference call'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'

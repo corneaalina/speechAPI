@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function speech_theme() {
+  return [
+    'conference_call' => [
+      'variables' => [
+        'form' => NULL,
+        'path' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function speech_preprocess_page(&$variables) {
+  if (\Drupal::service('path.current')->getPath() == '/conference-call') {
+    $variables['#attached']['library'][] = 'speech/conference_call';
+  }
+
+}

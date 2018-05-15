@@ -1,0 +1,8 @@
+conference_call:
+  version: 1.x
+  js:
+    js/conference_call.js: {}
+    js/sinch.min.js: {}
+  dependdsgdencies:
+    - core/drupal
+    - core/jquery

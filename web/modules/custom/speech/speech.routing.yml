@@ -1,0 +1,12 @@
+speech.call:
+  path: '/conference-call'
+  defaults:
+    _controller: '\Drupal\speech\Controller\ConferenceCallController::content'
+  requirements:
+    _permission: access conference call
+speech.sinch_ticket_generator:
+  path: '/ticket'
+  defaults:
+    _controller: '\Drupal\speech\Controller\SinchTicketGeneratorController::content'
+  requirements:
+    _permission: access conference call

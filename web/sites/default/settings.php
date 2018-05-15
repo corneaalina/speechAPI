@@ -788,3 +788,8 @@ $settings['entity_update_batch_size'] = 50;
 $config_directories['sync'] = '../config/sync';
 
 $settings['install_profile'] = 'standard';
+
+// The sinch key.
+$settings['sinch-key'] = '1ece0175-849e-42d7-9b4b-b9fd1a1c1358';
+// The sinch secret key.
+$settings['sinch-secret'] = '8L/Eug038U+ino3ztJvGrA==';
