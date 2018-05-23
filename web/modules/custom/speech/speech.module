@@ -18,7 +18,7 @@ function speech_theme() {
  * Implements hook_preprocess_HOOK() for page templates.
  */
 function speech_preprocess_page(&$variables) {
-  if (\Drupal::service('path.current')->getPath() == '/conference-call') {
+  if (\Drupal::routeMatch()->getRouteName() == 'speech.call') {
     $variables['#attached']['library'][] = 'speech/conference_call';
   }
 

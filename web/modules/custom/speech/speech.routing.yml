@@ -10,3 +10,17 @@ speech.sinch_ticket_generator:
     _controller: '\Drupal\speech\Controller\SinchTicketGeneratorController::content'
   requirements:
     _permission: access conference call
+speech.sinch_settings:
+  path: '/admin/config/sinch-settings'
+  defaults:
+    _form: '\Drupal\speech\Form\SinchSettingsForm'
+    _title: 'Sinch settings'
+  requirements:
+    _permission: 'administer site configurations'
+speech.configurations:
+  path: '/admin/config/speech'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Google PHP speech API'
+  requirements:
+    _permission: 'administer site configurations'

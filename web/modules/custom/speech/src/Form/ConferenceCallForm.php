@@ -2,10 +2,8 @@
 
 namespace Drupal\speech\Form;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Manages conference calls.
@@ -13,36 +11,10 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class ConferenceCallForm extends FormBase {
 
   /**
-   * The entity type manager service.
-   *
-   * @var EntityTypeManagerInterface
-   */
-  protected $entityTypeManager;
-
-  /**
-   * ConferenceCallForm constructor.
-   *
-   * @param EntityTypeManagerInterface $entity_type_manager
-   *   The entity type manager service.
-   */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager) {
-    $this->entityTypeManager = $entity_type_manager;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static (
-      $container->get('entity_type.manager')
-    );
-  }
-
-  /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'conference_call_form';
+    return 'speech.conference_call_form';
   }
 
   /**
@@ -50,11 +22,8 @@ class ConferenceCallForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['callee'] = [
-      '#prefix' => '<div id="callee">',
-      '#suffix' => '</div>',
       '#type' => 'textfield',
-      '#title' => 'The username to call',
-      '#description' => $this->t('The username to call.'),
+      '#placeholder' => $this->t('Username to call'),
       '#attributes' => [
         'id' => [
           'username_to_call',
