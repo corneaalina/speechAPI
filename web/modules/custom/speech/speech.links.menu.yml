@@ -1,0 +1,11 @@
+speech.configurations:
+  title: 'Speech settings'
+  route_name: speech.configurations
+  description: 'Manages Google PHP speech API configurations.'
+  parent: system.admin_config
+
+speech.sinch_settings:
+  title: 'Sinch settings'
+  route_name: speech.sinch_settings
+  decription: 'Manages sinch settings.'
+  parent: speech.configurations

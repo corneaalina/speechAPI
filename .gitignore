@@ -22,3 +22,11 @@
 
 # Ignore .env files as they are personal
 /.env
+
+# Ignore certifications
+/certs/
+/dev.deliciousbrains.com.crt
+/dev.deliciousbrains.com.key
+speech.localhost.crt
+speech.localhost.key
+speech.localhost:8000

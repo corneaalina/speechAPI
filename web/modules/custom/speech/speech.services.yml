@@ -1,0 +1,3 @@
+services:
+  speech.sinch:
+    class: Drupal\speech\Service\SinchService
