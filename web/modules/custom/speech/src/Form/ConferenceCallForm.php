@@ -70,6 +70,8 @@ class ConferenceCallForm extends FormBase {
       ],
     ];
 
+    $form['#attached']['library'][] = 'speech/conference_call';
+
     return $form;
   }
 
