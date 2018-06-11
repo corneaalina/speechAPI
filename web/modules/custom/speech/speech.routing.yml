@@ -10,6 +10,13 @@ speech.sinch_ticket_generator:
     _controller: '\Drupal\speech\Controller\SinchTicketGeneratorController::content'
   requirements:
     _permission: access conference call
+speech.autocomplete_users:
+  path: '/users-autocomplete'
+  defaults:
+    _controller: '\Drupal\speech\Controller\AutocompleteController::usersAutocomplete'
+    _format: json
+  requirements:
+    _permission: access conference call
 speech.sinch_settings:
   path: '/admin/config/sinch-settings'
   defaults:

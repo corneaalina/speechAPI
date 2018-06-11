@@ -76,9 +76,6 @@
                         }
                         call.addEventListener(callListeners);
                     }
-                    else {
-                        alert('No username to call provided!');
-                    }
                 }
             });
 

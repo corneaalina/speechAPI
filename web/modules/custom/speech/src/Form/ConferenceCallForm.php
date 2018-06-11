@@ -24,6 +24,7 @@ class ConferenceCallForm extends FormBase {
     $form['callee'] = [
       '#type' => 'textfield',
       '#placeholder' => $this->t('Username to call'),
+      '#autocomplete_route_name' => 'speech.autocomplete_users',
       '#attributes' => [
         'id' => [
           'username_to_call',
