@@ -1,0 +1,19 @@
+uuid: 7b2f961b-efcc-427f-a4fe-109dad35fdf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_confidence
+    - node.type.speech_transcript
+id: node.speech_transcript.field_confidence
+field_name: field_confidence
+entity_type: node
+bundle: speech_transcript
+label: Confidence
+description: 'The confidence of the text transcription.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

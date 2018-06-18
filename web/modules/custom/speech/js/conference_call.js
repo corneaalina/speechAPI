@@ -8,24 +8,16 @@
     // Hides the answer and hangup buttons.
     hideInput('#answer');
     hideInput('#hangup');
+    hideInput('#proceed-to-transcription');
     $('audio#calling').trigger("pause");
     $('audio#ringtone').trigger("pause");
 
     navigator.mediaDevices.getUserMedia({
         audio: true
     }).then(function (stream) {
-        var recorder = new MediaRecorder(stream);
-        recorder.addEventListener('dataavailable', function(element) {
-            // Creates the audio file.
-            var audio = document.getElementById('recording');
-            audio.src = URL.createObjectURL(element.data);
-
-            // Downloads the audio file.
-            var download_link = document.createElement('a');
-            download_link.href = audio.src;
-            download_link.setAttribute('download', element.timeStamp + '.wav');
-            download_link.click();
-        });
+        var audio_context = new AudioContext;
+        var input = audio_context.createMediaStreamSource(stream);
+        var recorder = new Recorder(input);
 
         // Starts the sinchClient
         $.get('/ticket', function (sinch_data)  {
@@ -132,8 +124,9 @@
                 $('audio#calling').trigger("pause");
                 $('audio#ringtone').trigger("pause");
                 $('audio#incoming').attr('src', call.incomingStreamURL);
-                // Starts the recording.
-                recorder.start();
+                recorder.record();
+                //Stops the recording when it reaches 1 minute.
+                setTimeout(stopRecording, 60000);
             },
             onCallEnded: function (call) {
                 enableInput('#username_to_call');
@@ -144,10 +137,32 @@
                 showInput('#username_to_call');
                 $('audio#calling').trigger("pause");
                 $('audio#incoming').attr('src', '');
-                // Stops the recording.
-                recorder.stop();
+                if (recorder.recording) {
+                    stopRecording();
+                }
+
+                showInput('#proceed-to-transcription');
             }
         };
+
+        // Stops and downloads the audio recording.
+        function stopRecording() {
+            recorder.stop();
+
+            // Downloads the audio file.
+            recorder.exportWAV(function(blob) {
+                var url = URL.createObjectURL(blob);
+                var audio = document.createElement('audio');
+                var href = document.createElement('a');
+
+                audio.controls = true;
+                audio.src = url;
+                href.href = url;
+                href.download = new Date().toISOString() + '.wav';
+                href.innerHTML = href.download;
+                href.click();
+            });
+        }
     });
 
     // Displays the error.

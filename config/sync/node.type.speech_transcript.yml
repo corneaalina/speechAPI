@@ -1,0 +1,18 @@
+uuid: 82504b56-c1ff-49d2-8ff5-3072901890ba
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Speech transcript'
+type: speech_transcript
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,27 @@
+uuid: b8ec757a-c2f7-4b89-85b3-5e55b1ab8533
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_recording
+    - node.type.speech_transcript
+  module:
+    - file
+id: node.speech_transcript.field_recording
+field_name: field_recording
+entity_type: node
+bundle: speech_transcript
+label: Recording
+description: 'The audio recording.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: vaw
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

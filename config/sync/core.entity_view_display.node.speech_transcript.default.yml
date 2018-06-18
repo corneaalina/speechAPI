@@ -1,0 +1,54 @@
+uuid: c8ee088d-1b19-4ac6-ae31-00e2cec495d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.speech_transcript.body
+    - field.field.node.speech_transcript.field_confidence
+    - field.field.node.speech_transcript.field_created_by
+    - field.field.node.speech_transcript.field_recording
+    - node.type.speech_transcript
+  module:
+    - file
+    - text
+    - user
+id: node.speech_transcript.default
+targetEntityType: node
+bundle: speech_transcript
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_confidence:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_created_by:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_recording:
+    weight: 102
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

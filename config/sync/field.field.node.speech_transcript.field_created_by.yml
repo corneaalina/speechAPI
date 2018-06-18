@@ -1,0 +1,19 @@
+uuid: 2a4cee03-f170-49fe-879a-3a46a8775ede
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_created_by
+    - node.type.speech_transcript
+id: node.speech_transcript.field_created_by
+field_name: field_created_by
+entity_type: node
+bundle: speech_transcript
+label: 'Created by'
+description: 'The user that created the recording.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

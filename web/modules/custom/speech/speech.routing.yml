@@ -17,11 +17,24 @@ speech.autocomplete_users:
     _format: json
   requirements:
     _permission: access conference call
+speech.transcription:
+  path: '/transcription'
+  defaults:
+    _form: '\Drupal\speech\Form\TranscriptionForm'
+  requirements:
+    _permission: access conference call
 speech.sinch_settings:
   path: '/admin/config/sinch-settings'
   defaults:
     _form: '\Drupal\speech\Form\SinchSettingsForm'
     _title: 'Sinch settings'
+  requirements:
+    _permission: 'administer site configurations'
+speech.speech_settings:
+  path: '/admin/config/speech-settings'
+  defaults:
+    _form: '\Drupal\speech\Form\SpeechSettingsForm'
+    _title: 'Speech settings'
   requirements:
     _permission: 'administer site configurations'
 speech.configurations:

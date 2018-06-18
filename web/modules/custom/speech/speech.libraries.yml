@@ -6,8 +6,14 @@ conference_call:
     - core/drupal
     - core/jquery
     - speech/sinch
+    - speech/recorder
 
 sinch:
   version: 1.x
   js:
     js/sinch.min.js: {}
+
+recorder:
+  version: 1.x
+  js:
+    js/recorder.js: {}
