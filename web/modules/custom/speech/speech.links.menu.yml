@@ -9,3 +9,9 @@ speech.sinch_settings:
   route_name: speech.sinch_settings
   decription: 'Manages sinch settings.'
   parent: speech.configurations
+
+speech.speech_settings:
+  title: 'Speech settings'
+  route_name: speech.speech_settings
+  decription: 'Manages speech settings.'
+  parent: speech.configurations

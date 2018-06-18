@@ -1,3 +1,6 @@
 services:
   speech.sinch:
     class: Drupal\speech\Service\SinchService
+  speech.speech:
+    class: Drupal\speech\Service\SpeechService
+    arguments: ['@state', '@entity_type.manager']

@@ -34,7 +34,7 @@ class SinchSettingsForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static (
-       $container->get(state)
+       $container->get('state')
     );
   }
 

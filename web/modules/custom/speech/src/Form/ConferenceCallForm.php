@@ -71,6 +71,16 @@ class ConferenceCallForm extends FormBase {
       ],
     ];
 
+    $form['submit'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Proceed to transcription'),
+      '#attributes' => [
+        'id' => [
+          'proceed-to-transcription',
+        ],
+      ],
+    ];
+
     $form['#attached']['library'][] = 'speech/conference_call';
 
     return $form;
@@ -80,7 +90,7 @@ class ConferenceCallForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-
+    $form_state->setRedirect('speech.transcription');
   }
 
 }

@@ -1,0 +1,28 @@
+uuid: 249628c4-748e-476c-834d-d3328c70dbcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.speech_transcript.body
+    - node.type.speech_transcript
+  module:
+    - text
+    - user
+id: node.speech_transcript.teaser
+targetEntityType: node
+bundle: speech_transcript
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
