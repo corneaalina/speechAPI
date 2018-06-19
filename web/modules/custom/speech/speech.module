@@ -11,6 +11,11 @@ function speech_theme() {
         'path' => NULL,
       ],
     ],
+    'call_history' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+    ],
   ];
 }
 

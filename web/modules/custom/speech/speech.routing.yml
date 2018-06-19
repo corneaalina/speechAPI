@@ -23,6 +23,12 @@ speech.transcription:
     _form: '\Drupal\speech\Form\TranscriptionForm'
   requirements:
     _permission: access conference call
+speech.call_history:
+  path: 'call-history'
+  defaults:
+    _controller: '\Drupal\speech\Controller\CallHistoryController::content'
+  requirements:
+    _permission: access conference call
 speech.sinch_settings:
   path: '/admin/config/sinch-settings'
   defaults:
