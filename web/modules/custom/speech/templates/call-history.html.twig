@@ -1,0 +1,9 @@
+{%  for node in content %}
+    <h2>
+        <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">{{ node.title }}</a>
+    </h2>
+
+    {{ node.date }}
+
+    <br>
+{% endfor %}
