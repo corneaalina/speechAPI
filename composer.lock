@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "16742400120d5162371e66c56a254158",
+    "content-hash": "60925c28cea81d755e2e87b29ceb1140",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1349,6 +1349,65 @@
             ],
             "description": "Composer Plugin for updating the Drupal scaffold files when using drupal/core",
             "time": "2017-12-08T22:53:11+00:00"
+        },
+        {
+            "name": "drupal/bootstrap_business",
+            "version": "1.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/bootstrap-business",
+                "reference": "8.x-1.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/bootstrap_business-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "89d867d6a52dfa5b39ada7cd404a18b9272574e6"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1513574888",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "evankay",
+                    "homepage": "https://www.drupal.org/user/2912669"
+                },
+                {
+                    "name": "gtsopour",
+                    "homepage": "https://www.drupal.org/user/829430"
+                },
+                {
+                    "name": "skechagia",
+                    "homepage": "https://www.drupal.org/user/2447146"
+                },
+                {
+                    "name": "skounis",
+                    "homepage": "https://www.drupal.org/user/877552"
+                }
+            ],
+            "description": "An extremely flexible, responsive theme with a wealth of regions. Supported by <a href=\"http://www.morethanthemes.com/\" target=\"_blank\">More than (just) Themes</a>. If you like this theme, feel welcome to also check our other <a href=\"http://www.morethanthemes.com\" target=\"_blank\">Premium</a> and <a href=\"http://drupalizing.com\" target=\"_blank\">Free</a> Drupal themes.",
+            "homepage": "https://www.drupal.org/project/bootstrap_business",
+            "support": {
+                "source": "http://cgit.drupalcode.org/bootstrap_business"
+            }
         },
         {
             "name": "drupal/console",
@@ -7728,6 +7787,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/bootstrap_business": 10,
         "drupal/contact_storage": 10
     },
     "prefer-stable": true,
