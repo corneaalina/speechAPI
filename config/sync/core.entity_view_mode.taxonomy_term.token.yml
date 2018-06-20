@@ -1,0 +1,10 @@
+uuid: bedf5536-0198-4cae-abac-a825054b34d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.token
+label: Token
+targetEntityType: taxonomy_term
+cache: true
