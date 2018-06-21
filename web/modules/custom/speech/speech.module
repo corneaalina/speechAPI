@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Implements hook_theme().
  */
@@ -19,3 +21,16 @@ function speech_theme() {
   ];
 }
 
+/**
+ * Implements hook_form_alter().
+ */
+function speech_form_alter(&$form, &$form_state, $form_id) {
+  $form['#submit'][] = 'speech_login_form_submit';
+}
+
+/**
+ * Custom submit handler for the login form.
+ */
+function speech_login_form_submit($form, FormStateInterface $form_state) {
+  $form_state->setRedirect('<front>');
+}
