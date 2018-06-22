@@ -31,13 +31,6 @@ class TranscriptionForm extends FormBase {
   protected $currentUser;
 
   /**
-   * The messenger service.
-   *
-   * @var MessengerInterface
-   */
-  protected $messenger;
-
-  /**
    * The speech service.
    *
    * @var SpeechServiceInterface
@@ -65,10 +58,9 @@ class TranscriptionForm extends FormBase {
    * @param FileUsageInterface $file_usage
    *   The file usage service.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, AccountInterface $current_user, MessengerInterface $messenger, SpeechServiceInterface $speech_service, FileUsageInterface $file_usage) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, AccountInterface $current_user, SpeechServiceInterface $speech_service, FileUsageInterface $file_usage) {
     $this->entityTypeManager = $entity_type_manager;
     $this->currentUser = $current_user;
-    $this->messenger = $messenger;
     $this->speechService = $speech_service;
     $this->fileUsage = $file_usage;
   }
@@ -80,7 +72,6 @@ class TranscriptionForm extends FormBase {
     return new static(
       $container->get('entity_type.manager'),
       $container->get('current_user'),
-      $container->get('messenger'),
       $container->get('speech.speech'),
       $container->get('file.usage')
     );
