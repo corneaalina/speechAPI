@@ -25,7 +25,9 @@ function speech_theme() {
  * Implements hook_form_alter().
  */
 function speech_form_alter(&$form, &$form_state, $form_id) {
-  $form['#submit'][] = 'speech_login_form_submit';
+  if ($form_id == 'user_login_form') {
+    $form['#submit'][] = 'speech_login_form_submit';
+  }
 }
 
 /**
