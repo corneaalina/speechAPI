@@ -1,6 +1,7 @@
 <?php
 
 namespace Drupal\speech\Service;
+
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\State\StateInterface;
 use Google\Cloud\Speech\SpeechClient;
