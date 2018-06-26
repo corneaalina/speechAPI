@@ -113,6 +113,7 @@
                 hideInput('#username_to_call');
                 // Displays the caller username.
                 $('div#callLog').append("<div>Incoming call from " + incomingCall.fromId + "</div>");
+                $("input#username_to_call").val(incomingCall.fromId);
                 $('audio#ringtone').prop("currentTime", 0);
                 $('audio#ringtone').trigger("play");
             },
@@ -154,11 +155,10 @@
                 var url = URL.createObjectURL(blob);
                 var audio = document.createElement('audio');
                 var href = document.createElement('a');
-
                 audio.controls = true;
                 audio.src = url;
                 href.href = url;
-                href.download = new Date().toISOString() + '.wav';
+                href.download = new Date().toDateString() + ' - ' + $("input#username_to_call").val() + '.wav';
                 href.innerHTML = href.download;
                 href.click();
             });
