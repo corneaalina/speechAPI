@@ -33,7 +33,7 @@ speech.register:
   path: 'register'
   defaults:
     _form: '\Drupal\speech\Form\RegisterForm'
-    _title: 'Register'
+    _title: 'Create new account'
   requirements:
     _permission: access register page
 speech.sinch_settings:
