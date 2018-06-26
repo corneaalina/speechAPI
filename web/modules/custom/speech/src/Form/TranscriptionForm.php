@@ -51,8 +51,6 @@ class TranscriptionForm extends FormBase {
    *   The entity type manager service.
    * @param AccountInterface $current_user
    *   The current user.
-   * @param MessengerInterface $messenger
-   *   The messenger service.
    * @param SpeechServiceInterface $speech_service
    *   The speech service.
    * @param FileUsageInterface $file_usage
@@ -112,14 +110,14 @@ class TranscriptionForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // The curret time.
-    $created_at = new \DateTime('now');
 
     $recording = $form_state->getValue('recording');
     $transcription = [];
+    $title = '';
     if (!empty($recording)) {
       // Load the object of the file by it's fid.
       $file = $this->entityTypeManager->getStorage('file')->load($recording[0]);
+      $title = explode('.', $file->get('filename')->value);
       // Set the status flag permanent of the file object.
       $file->setPermanent();
       // Save the file in database.
@@ -130,7 +128,7 @@ class TranscriptionForm extends FormBase {
     // Creates a new node.
     $node = $this->entityTypeManager->getStorage('node')->create([
       'type' => 'speech_transcript',
-      'title' => $created_at->format('c'),
+      'title' => $title[0],
       'field_recording' => $recording,
       'body' => $transcription['transcript'],
       'field_confidence' => $transcription['confidence'],
