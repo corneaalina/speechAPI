@@ -29,6 +29,13 @@ speech.call_history:
     _controller: '\Drupal\speech\Controller\CallHistoryController::content'
   requirements:
     _permission: access conference call
+speech.register:
+  path: 'register'
+  defaults:
+    _form: '\Drupal\speech\Form\RegisterForm'
+    _title: 'Create new account'
+  requirements:
+    _permission: access register page
 speech.sinch_settings:
   path: '/admin/config/sinch-settings'
   defaults:
