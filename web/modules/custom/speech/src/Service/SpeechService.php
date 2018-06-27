@@ -59,10 +59,15 @@ class SpeechService implements SpeechServiceInterface {
     ];
 
     $alternatives = [];
+    $transcriptions = [];
     // Performs the speech to text transcription.
     $results = $speech_client->recognize(fopen($file->getFileUri(),'r'), $options);
     if ($results) {
-      $alternatives = $results[0]->info()['alternatives'][0];
+      foreach ($results as $result) {
+          $transcriptions[] = $result->info()['alternatives'][0]['transcript'];
+      }
+      $alternatives['transcript'] = implode(' ', $transcriptions);
+      $alternatives['confidence'] = $results[0]->info()['alternatives'][0]['confidence'];
     }
 
     return $alternatives;
