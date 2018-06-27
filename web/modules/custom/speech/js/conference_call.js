@@ -57,16 +57,22 @@
                 if (!call) {
                     var usernameToCall = $("input#username_to_call").val();
                     if (usernameToCall) {
-                        call = callClient.callUser(usernameToCall);
-                        // If the call has been successfully initiated, hide the "call" button and show the "hangup" button.
-                        if (call) {
-                            $('audio#calling').prop("currentTime", 0);
-                            $('audio#calling').trigger("play");
-                            disableInput('#username_to_call');
-                            hideInput('#call');
-                            showInput('#hangup');
+                        if (jQuery.inArray(usernameToCall, drupalSettings.speech.users) !== -1) {
+                            hideInput('#callLog');
+                            call = callClient.callUser(usernameToCall);
+                            // If the call has been successfully initiated, hide the "call" button and show the "hangup" button.
+                            if (call) {
+                                $('audio#calling').prop("currentTime", 0);
+                                $('audio#calling').trigger("play");
+                                disableInput('#username_to_call');
+                                hideInput('#call');
+                                showInput('#hangup');
+                            }
+                            call.addEventListener(callListeners);
                         }
-                        call.addEventListener(callListeners);
+                        else {
+                            $('div#callLog').append("<div>Invalid username! </div>");
+                        }
                     }
                 }
             });
@@ -140,9 +146,8 @@
                 $('audio#incoming').attr('src', '');
                 if (recorder.recording) {
                     stopRecording();
+                    showInput('#proceed-to-transcription');
                 }
-
-                showInput('#proceed-to-transcription');
             }
         };
 
